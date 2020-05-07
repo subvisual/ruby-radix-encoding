@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning].
 Unreleased
 ----------
 
-_Coming soon_
+- Add standard Base32 encoding.
 
 
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0/

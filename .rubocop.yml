@@ -10,9 +10,6 @@ AllCops:
 Layout/DotPosition:
   EnforcedStyle: trailing
 
-Layout/LineLength:
-  Enabled: false
-
 Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 
