@@ -4,23 +4,31 @@ Gem::Specification.new do |spec|
   spec.name          = "radix_encoding"
   spec.version       = RadixEncoding::VERSION
   spec.authors       = ["Pedro Costa"]
-  spec.email         = ["dev@iampfac.com"]
+  spec.email         = ["pedro@subvisual.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Encode data in any base and alphabet"
+  spec.description   = <<~EOS
+    Binary to text encoding of data is commonly used for transmission when the
+    channel does not support binary data. Common formats are Base16 (also known
+    as hexadecimal), Base32, and Base64.
+
+    However it is possible to encode data into any base, given an alphabet with
+    that length. This tool allows the creation of an encoder for any base and
+    alphabet, handling the special case where the base is not a power of 2.
+  EOS
+  spec.homepage      = "https://github.com/subvisual/ruby-radix-encoding"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/subvisual/ruby-radix-encoding"
+  spec.metadata["changelog_uri"] = "https://github.com/subvisual/ruby-radix-encoding/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(bin|spec)/}) }
   end
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
