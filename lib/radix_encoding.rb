@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "radix_encoding/version"
 
 module RadixEncoding

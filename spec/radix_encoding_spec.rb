@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe RadixEncoding do
   it "has a version number" do
     expect(RadixEncoding::VERSION).not_to be nil

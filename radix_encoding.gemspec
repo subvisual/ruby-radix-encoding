@@ -1,4 +1,6 @@
-require_relative 'lib/radix_encoding/version'
+# frozen_string_literal: true
+
+require_relative "lib/radix_encoding/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "radix_encoding"
@@ -16,7 +18,7 @@ Gem::Specification.new do |spec|
     that length. This tool allows the creation of an encoder for any base and
     alphabet, handling the special case where the base is not a power of 2.
   EOS
-  spec.homepage      = "https://github.com/subvisual/ruby-radix-encoding"
+  spec.homepage = "https://github.com/subvisual/ruby-radix-encoding"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
@@ -27,7 +29,7 @@ Gem::Specification.new do |spec|
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
+  spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(bin|spec)/}) }
   end
   spec.bindir        = "exe"
