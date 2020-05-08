@@ -7,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = RadixEncoding::VERSION
   spec.authors       = ["Pedro Costa"]
   spec.email         = ["pedro@subvisual.com"]
+  spec.license       = "MIT"
 
   spec.summary       = "Encode data in any base and alphabet"
   spec.description   = <<~DESCRIPTION
