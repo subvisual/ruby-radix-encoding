@@ -1,8 +1,31 @@
 # frozen_string_literal: true
 
+require "faker"
+
+require "radix_encoding"
+
 RSpec.describe RadixEncoding do
   it "has a version number" do
     expect(RadixEncoding::VERSION).not_to be nil
+  end
+
+  describe "::BASE16" do
+    it "encodes a message to its hexadecimal representation" do
+      message = Faker::Lorem.sentence
+
+      encoded = RadixEncoding::BASE16.encode(message)
+
+      expect(encoded).to eq Digest.hexencode(message).upcase
+    end
+
+    it "decodes a message from its hexadecimal representation" do
+      message = Faker::Lorem.sentence
+      encoded = Digest.hexencode(message).upcase
+
+      decoded = RadixEncoding::BASE16.decode(encoded)
+
+      expect(decoded).to eq message
+    end
   end
 
   describe "::BASE32" do

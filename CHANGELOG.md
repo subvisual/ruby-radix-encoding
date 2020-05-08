@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning].
 Unreleased
 ----------
 
-- Add standard Base32, Base64, encoding and decoding.
+- Add standard Base16, Base32, and Base64, encoding and decoding.
 
 
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0/
