@@ -21,8 +21,22 @@ module RadixEncoding
       end
     end
 
+    def bytes_for(bits)
+      bits.each_slice(8).map do |byte_bits|
+        byte_bits.join.to_i(2)
+      end
+    end
+
     def pad_bits(bits, padded_bitsize)
       Subvisual::ArrayUtils.pad_right(bits, padded_bitsize, "0")
+    end
+
+    def unpad_bits(bits)
+      excess_bits = bits.size % 8
+
+      return bits if excess_bits.zero?
+
+      bits[0...-excess_bits]
     end
   end
 end

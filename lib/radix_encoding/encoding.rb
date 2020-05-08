@@ -25,6 +25,16 @@ module RadixEncoding
       validate!
     end
 
+    def decode(data)
+      decoded = data.chars
+      decoded = unpad_encoded_points(decoded)
+      decoded = bits_from_encoded_points(decoded)
+      decoded = unpad_bits(decoded)
+      decoded = bytes_for(decoded)
+      decoded = decoded.pack("c*")
+      decoded
+    end
+
     def encode(data)
       case data
       when String

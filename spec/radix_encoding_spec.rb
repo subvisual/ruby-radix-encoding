@@ -31,5 +31,31 @@ RSpec.describe RadixEncoding do
 
       expect(actual).to eq expected
     end
+
+    [
+      { message: "IFBEGRCF", expected: "ABCDE" },
+      { message: "IFBEGRA=", expected: "ABCD" },
+      { message: "IFBEG===", expected: "ABC" },
+      { message: "IFBA====", expected: "AB" },
+      { message: "IE======",     expected: "A" },
+    ].each do |test_case|
+      message = test_case[:message]
+      expected = test_case[:expected]
+
+      it "decodes '#{message}' to '#{expected}'" do
+        actual = RadixEncoding::BASE32.decode(message)
+
+        expect(actual).to eq expected
+      end
+    end
+
+    it "decodes 'JBSWY3DPEBLW64TMMQQQ====' to 'Hello World!'" do
+      message = "JBSWY3DPEBLW64TMMQQQ===="
+      expected = "Hello World!"
+
+      actual = RadixEncoding::BASE32.decode(message)
+
+      expect(actual).to eq expected
+    end
   end
 end

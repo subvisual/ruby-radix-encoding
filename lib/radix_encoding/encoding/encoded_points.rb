@@ -14,6 +14,18 @@ module RadixEncoding
         bitsize / encoded_point_bitsize
       end
 
+      def bits_from_encoded_points(encoded_points)
+        encoded_points.
+          map do |encoded_point|
+            alphabet.
+              index(encoded_point).
+              to_s(2).
+              rjust(encoded_point_bitsize, "0")
+          end.
+          join.
+          chars
+      end
+
       def encoded_point_bitsize
         raise NotImplementedError
       end
@@ -38,6 +50,14 @@ module RadixEncoding
 
       def padding
         raise NotImplementedError
+      end
+
+      def unpad_encoded_points(encoded_points)
+        first_padding_index = encoded_points.index(padding)
+
+        return encoded_points if first_padding_index.nil?
+
+        encoded_points[0...first_padding_index]
       end
     end
   end
