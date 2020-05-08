@@ -10,6 +10,12 @@ module RadixEncoding
         raise NotImplementedError
       end
 
+      def clean_encoded_points(encoded_points, padding_size)
+        return encoded_points unless padding_size.positive?
+
+        encoded_points[0...-padding_size]
+      end
+
       def count_encoded_points_in(bitsize)
         bitsize / encoded_point_bitsize
       end

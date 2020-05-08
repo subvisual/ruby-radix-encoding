@@ -53,12 +53,6 @@ module RadixEncoding
         Subvisual::MathUtils.least_common_denominator(lower_power, 8)
     end
 
-    def clean_encoded_points(encoded_points, padding_size)
-      return encoded_points unless padding_size.positive?
-
-      encoded_points[0...-padding_size]
-    end
-
     def encode_bytes(bytes)
       bits = bits_for(bytes)
       padded_bitsize = chunks_total_bitsize_for(bits)
