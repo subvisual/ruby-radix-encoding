@@ -58,4 +58,58 @@ RSpec.describe RadixEncoding do
       expect(actual).to eq expected
     end
   end
+
+  describe "::BASE64" do
+    [
+      { message: "ABCDE", expected: "QUJDREU=" },
+      { message: "ABCD",  expected: "QUJDRA==" },
+      { message: "ABC",   expected: "QUJD" },
+      { message: "AB",    expected: "QUI=" },
+      { message: "A",     expected: "QQ==" },
+    ].each do |test_case|
+      message = test_case[:message]
+      expected = test_case[:expected]
+
+      it "encodes '#{message}' to '#{expected}'" do
+        actual = RadixEncoding::BASE64.encode(message)
+
+        expect(actual).to eq expected
+      end
+    end
+
+    it "encodes 'Hello World!' to 'SGVsbG8gV29ybGQh'" do
+      message = "Hello World!"
+      expected = "SGVsbG8gV29ybGQh"
+
+      actual = RadixEncoding::BASE64.encode(message)
+
+      expect(actual).to eq expected
+    end
+
+    [
+      { message: "QUJDREU=", expected: "ABCDE" },
+      { message: "QUJDRA==", expected: "ABCD" },
+      { message: "QUJD",     expected: "ABC" },
+      { message: "QUI=",     expected: "AB" },
+      { message: "QQ==",     expected: "A" },
+    ].each do |test_case|
+      message = test_case[:message]
+      expected = test_case[:expected]
+
+      it "decodes '#{message}' to '#{expected}'" do
+        actual = RadixEncoding::BASE64.decode(message)
+
+        expect(actual).to eq expected
+      end
+    end
+
+    it "decodes 'SGVsbG8gV29ybGQh' to 'Hello World!'" do
+      message = "SGVsbG8gV29ybGQh"
+      expected = "Hello World!"
+
+      actual = RadixEncoding::BASE64.decode(message)
+
+      expect(actual).to eq expected
+    end
+  end
 end
