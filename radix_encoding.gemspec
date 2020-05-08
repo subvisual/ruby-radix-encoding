@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["pedro@subvisual.com"]
 
   spec.summary       = "Encode data in any base and alphabet"
-  spec.description   = <<~EOS
+  spec.description   = <<~DESCRIPTION
     Binary to text encoding of data is commonly used for transmission when the
     channel does not support binary data. Common formats are Base16 (also known
     as hexadecimal), Base32, and Base64.
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
     However it is possible to encode data into any base, given an alphabet with
     that length. This tool allows the creation of an encoder for any base and
     alphabet, handling the special case where the base is not a power of 2.
-  EOS
+  DESCRIPTION
   spec.homepage = "https://github.com/subvisual/ruby-radix-encoding"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
@@ -28,7 +28,8 @@ Gem::Specification.new do |spec|
   spec.metadata["changelog_uri"] = "https://github.com/subvisual/ruby-radix-encoding/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
+  # The `git ls-files -z` loads the files in the RubyGem that have been added
+  # into git.
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(bin|spec)/}) }
   end
