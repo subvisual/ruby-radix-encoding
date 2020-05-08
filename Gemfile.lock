@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    radix_encoding (0.1.0)
+    radix_encoding (0.1.0.1)
       activesupport (>= 3.0)
       subvisual-utils (~> 0.x)
 
