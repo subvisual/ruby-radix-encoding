@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning].
 Unreleased
 ----------
 
+_Coming soon_
+
+
+v0.1.0.1 - 2020-05-08
+---------------------
+
 - Change gem description to be clear we only support power-of-2 bases.
 
 
