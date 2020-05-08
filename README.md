@@ -73,7 +73,7 @@ git commits and tags, and push the `.gem` file to [rubygems.org].
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at
-https://github.com/subvisual/radix_encoding.
+https://github.com/subvisual/ruby-radix-encoding.
 
 
 License
