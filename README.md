@@ -43,7 +43,7 @@ through constants under `RadixEncoding`:
 To create your own encoding variant, use the `RadixEncoding::Encoding` class.
 
 ```ruby
-digest_hexencode = Encoding.new(
+digest_hexencode = RadixEncoding::Encoding.new(
   alphabet: "abcdefghijklmnopqrstuvwxyz234567",
   radix: 32,
   padding: "=",
