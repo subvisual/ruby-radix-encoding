@@ -45,7 +45,7 @@ To create your own encoding variant, use the `RadixEncoding::Encoding` class.
 ```ruby
 digest_hexencode = RadixEncoding::Encoding.new(
   alphabet: "abcdefghijklmnopqrstuvwxyz234567",
-  radix: 32,
+  radix: 16,
   padding: "=",
 )
 ```
