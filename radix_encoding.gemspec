@@ -9,15 +9,14 @@ Gem::Specification.new do |spec|
   spec.email         = ["pedro@subvisual.com"]
   spec.license       = "MIT"
 
-  spec.summary       = "Encode data in any base and alphabet"
+  spec.summary       = "Encode data in any power-of-2 base and alphabet"
   spec.description   = <<~DESCRIPTION
     Binary to text encoding of data is commonly used for transmission when the
     channel does not support binary data. Common formats are Base16 (also known
     as hexadecimal), Base32, and Base64.
 
-    However it is possible to encode data into any base, given an alphabet with
-    that length. This tool allows the creation of an encoder for any base and
-    alphabet, handling the special case where the base is not a power of 2.
+    This tool allows the creation of an encoder for any power-of-2 base and
+    alphabet, allowing even to customize the padding to be used, if any.
   DESCRIPTION
   spec.homepage = "https://github.com/subvisual/ruby-radix-encoding"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")

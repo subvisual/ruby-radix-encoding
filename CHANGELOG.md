@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning].
 Unreleased
 ----------
 
-_Coming soon_
+- Change gem description to be clear we only support power-of-2 bases.
 
 
 v0.1.0 - 2020-05-08
