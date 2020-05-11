@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning].
 Unreleased
 ----------
 
+_Coming soon_
+
+
+v0.2.0 - 2020-05-11
+-------------------
+
 - Add optional parameter `prefix` to `Encoding`.
 
 
