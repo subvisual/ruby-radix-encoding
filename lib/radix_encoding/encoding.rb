@@ -15,17 +15,22 @@ module RadixEncoding
     include EncodedPoints
     include Validations
 
-    attr_reader :alphabet, :padding, :radix
+    attr_reader :alphabet, :padding, :prefix, :radix
 
-    def initialize(alphabet:, radix:, padding: nil)
+    def initialize(alphabet:, radix:, padding: nil, prefix: nil)
       @alphabet = alphabet
       @padding = padding
+      @prefix = prefix
       @radix = radix
 
       validate!
     end
 
     def decode(data)
+      if prefix.present? && data.start_with?(prefix)
+        data = data[prefix.size..-1]
+      end
+
       decoded = data.chars
       decoded = unpad_encoded_points(decoded)
       decoded = bits_from_encoded_points(decoded)
@@ -63,7 +68,8 @@ module RadixEncoding
       encoded = clean_encoded_points(encoded, padding_count)
       encoded = pad_encoded_points(encoded, padding_count)
       encoded = encoded.join
-      encoded
+
+      "#{prefix}#{encoded}"
     end
 
     def encoded_point_bitsize
